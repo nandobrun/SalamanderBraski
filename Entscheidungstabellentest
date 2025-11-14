@@ -1,0 +1,18 @@
+Entscheidungstabelle für Board
+
+B1: Spiel ist fertig
+B2: Steine gleich
+B3: Spieler 1 hat mehr Steine
+B4: Spieler 2 hat mehr Steine
+
+Ergebnisse
+R1: Spiel läuft
+R2: Unentschieden
+R3: Sieg
+
+Entscheidungstabelle
+Fall	B1: fertig	B2: gleich	B3: s1 mehr	B4: s2 mehr	    Ergebnis
+1	    F	        -	        -	        -	            R1
+2	    T	        T	        F	        F	            R2
+3	    T	        F	        T	        F	            R2
+4	    T	        F	        F	        T	            R2
