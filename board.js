@@ -230,4 +230,29 @@ export class Board {
     }
     throw RangeError(`illegal player ${player}`);
   }
+
+  isValidMove(player, row, col) {
+  if (player != 1 && player != 2) return false
+  if (typeof row != "number" || typeof col != "number") return false
+  if (row < 0 || row >= 8 || col < 0 || col >= 8) return false
+  if (this.fields[row][col] != 0) return false
+  const other = player == 1 ? 2 : 1
+  const dirs = [
+    [-1,0],[1,0],[0,-1],[0,1],
+    [-1,-1],[-1,1],[1,-1],[1,1]
+  ]
+  for (const d of dirs) {
+    let r = row + d[0]
+    let c = col + d[1]
+    let seen = false
+    while (r>=0 && r<8 && c>=0 && c<8 && this.fields[r][c]==other) {
+      r += d[0]
+      c += d[1]
+      seen = true
+    }
+    if (seen && r>=0 && r<8 && c>=0 && c<8 && this.fields[r][c]==player) return true
+  }
+  return false
+}
+
 }
